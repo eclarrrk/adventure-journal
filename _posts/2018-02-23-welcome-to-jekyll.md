@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Welcome to Jekyll!
+title: Discovering Otter Creek
 meta_description: A description may also be set in a post. You can find more
   information about it in pages/about.md.
 date: 2018-07-03T12:00:00.000Z
@@ -14,8 +14,8 @@ latitude: "39.88761"
 longitude: "-76.386763"
 website: https://www.lancasterconservancy.org/preserves/otter-creek/
 area-map: https://www.lancasterconservancy.org/wp-content/uploads/2019/10/K.-Otter-Creek-Trails-Map-2019.pdf
-distance: 5
-duration: 3
+distance: 4.5
+duration: 1.9
 difficulty: 3
 happiness: 5
 author: dan_urbanowicz
