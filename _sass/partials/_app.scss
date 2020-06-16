@@ -25,7 +25,7 @@ body > * {
 
 // header, the first grid row
 // it is also a grid for the logo and nav
-header {
+.site-header {
   grid-column: full;
   display: grid;
   background-color: $brand-color;
