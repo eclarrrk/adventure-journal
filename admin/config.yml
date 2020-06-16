@@ -46,6 +46,11 @@ collections: # A list of collections the CMS should be able to edit
         widget: "number"
         required: false
         options: ["1", "2", "3", "4", "5"]
+      - label: "Flynn's Happiness Level"
+        name: "happiness"
+        widget: "number"
+        required: false
+        options: ["1", "2", "3", "4", "5"]
     # PAGES
   - name: "page"
     label: "Page"
