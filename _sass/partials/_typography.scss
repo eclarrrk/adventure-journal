@@ -39,7 +39,7 @@ h1,h2,h3,h4,h5,h6,figure {
 
 p.intro {
   font-size: 2.4rem;
-  color: lighten($text-color, 40%);
+  color: lighten($text-color, 10%);
   padding-bottom: 4rem;
   @media screen and (min-width: $screen-sm-min) {
     padding-bottom: 4rem;
@@ -47,8 +47,10 @@ p.intro {
 }
 
 h1,h2,h3,h4,h5,h6 {
-  font-weight: $bold-font-weight;
+  font-family: $heading-font;
+  font-weight: 700;
   line-height: $base-line-height / 1.3;
+  color: $green--d;
 }
 
 h2 {

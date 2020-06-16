@@ -1,1 +1,16 @@
 // add font-face or font import declarations here
+
+@font-face {
+    font-family: 'nps';
+    src: url('fonts/nps-regular-webfont.woff2') format('woff2'),
+         url('fonts/nps-regular-webfont.otf') format('opentype');
+    font-weight: 500;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'nps';
+    src: url('fonts/nps-heavy-webfont.woff2') format('woff2'),
+         url('fonts/nps-heavy-webfont.otf') format('opentype');
+    font-weight: 900;
+    font-style: normal;
+}
