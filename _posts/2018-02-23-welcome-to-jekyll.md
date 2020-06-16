@@ -1,10 +1,22 @@
 ---
 layout: post
-title: Welcome to Jekyll!
-meta_description: A description may also be set in a post. You can find more information about it in pages/about.md.
+meta_description: A description may also be set in a post. You can find more
+  information about it in pages/about.md.
 author: dan_urbanowicz
-date: '2018-07-03 12:00:00'
+title: Welcome to Jekyll!
+date: 2018-07-03 12:00:00
+area: Otter Creek/Urey Overlook
+town: York County
+state: PA
+map: '{"type":"Point","coordinates":[-76.3872538,39.8875421]}'
+latitude: "39.88761"
+longitude: "-76.386763"
+website: https://www.lancasterconservancy.org/preserves/otter-creek/
+area-map: https://www.lancasterconservancy.org/wp-content/uploads/2019/10/K.-Otter-Creek-Trails-Map-2019.pdf
+distance: 5
+duration: 3
 categories: misc
+rating: 5
 ---
 You’ll find this post in your `_posts` directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run `jekyll serve`, which launches a web server and auto-regenerates your site when a file is updated.
 
