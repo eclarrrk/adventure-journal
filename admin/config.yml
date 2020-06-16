@@ -41,7 +41,7 @@ collections: # A list of collections the CMS should be able to edit
         step: ".1"
         min: "0"
         max: "9999"
-        value: "float"
+        valueType: "float"
         required: false
       - label: "Duration"
         hint: "in hours"
@@ -50,7 +50,7 @@ collections: # A list of collections the CMS should be able to edit
         step: ".1"
         min: "0"
         max: "9999"
-        value: "float"
+        valueType: "float"
         required: false
       - label: "Rating"
         name: "rating"
@@ -60,7 +60,6 @@ collections: # A list of collections the CMS should be able to edit
       - label: "Difficulty"
         name: "difficulty"
         widget: "number"
-        step: 1
         min: 1
         max: 5
         required: false
@@ -68,7 +67,6 @@ collections: # A list of collections the CMS should be able to edit
       - label: "Flynn's Happiness Level"
         name: "happiness"
         widget: "number"
-        step: 1
         min: 1
         max: 5
         required: false
