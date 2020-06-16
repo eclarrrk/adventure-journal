@@ -21,16 +21,31 @@ collections: # A list of collections the CMS should be able to edit
       - {label: "Layout", name: "layout", widget: "hidden", default: "post"}
       - {label: "Title", name: "title", widget: "string", tagname: "h1"}
       - {label: "Meta Description", name: "meta_description", widget: "string", required: false}
-      - label: "Author"
-        name: "author"
-        widget: "select"
-        options:
-          - { label: "Dan Urbanowicz", value: "dan_urbanowicz" }
-          - { label: "John Doe", value: "john_doe" }
       - {label: "Publish Date", name: "date", widget: "datetime", format: "YYYY-MM-DD HH:mm:ss"}
       - {label: "Intro Paragraph", name: "intro_paragraph", widget: "markdown", required: false}
       - {label: "Body", name: "body", widget: "markdown", required: false}
-      - {label: "Categories", name: "categories", widget: "string", required: false}
+      # Start custom fields
+      - {label: "Area Name", name: "area", widget: "string", required: true}
+      - {label: "Town", name: "town", widget: "string", required: true}
+      - {label: "State", name: "state", widget: "string", required: true}
+      - {label: "Map JSON", name: "map", widget: "map", required: false}
+      - {label: "Latitude", name: "latitude", widget: "string", required: false}
+      - {label: "Longitude", name: "longitude", widget: "string", required: false}
+      - {label: "Area Website", name: "website", widget: "string", required: false}
+      - {label: "Area Map", name: "area-map", widget: "string", required: false}
+      - {label: "Map Link", name: "map-link", widget: "string", required: false}
+      - {label: "Distance", name: "distance", widget: "number", required: false}
+      - {label: "Duration", name: "duration", widget: "number", required: false}
+      - label: "Rating"
+        name: "rating"
+        widget: "number"
+        required: false
+        options: ["1", "2", "3", "4", "5"]
+      - label: "Difficulty"
+        name: "difficulty"
+        widget: "number"
+        required: false
+        options: ["1", "2", "3", "4", "5"]
     # PAGES
   - name: "page"
     label: "Page"
