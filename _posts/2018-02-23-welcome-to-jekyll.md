@@ -14,11 +14,11 @@ latitude: "39.88761"
 longitude: "-76.386763"
 website: https://www.lancasterconservancy.org/preserves/otter-creek/
 area-map: https://www.lancasterconservancy.org/wp-content/uploads/2019/10/K.-Otter-Creek-Trails-Map-2019.pdf
-distance: 5.3
-duration: 3.4
+distance: 4.5
+duration: 1.9
 difficulty: 3
 happiness: 5
 author: dan_urbanowicz
 categories: misc
-rating: 3
+rating: 5
 ---
