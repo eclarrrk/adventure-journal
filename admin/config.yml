@@ -34,8 +34,8 @@ collections: # A list of collections the CMS should be able to edit
       - {label: "Area Website", name: "website", widget: "string", required: false}
       - {label: "Area Map", name: "area-map", widget: "string", required: false}
       - {label: "Map Link", name: "map-link", widget: "string", required: false}
-      - {label: "Distance", name: "distance", widget: "number", required: false}
-      - {label: "Duration", name: "duration", widget: "number", required: false}
+      - {label: "Distance", hint: "in miles", name: "distance", widget: "number", step: ".1", valueType: "int", min: "0", required: false}
+      - {label: "Duration", hint: "in hours", name: "duration", widget: "number", step: ".1", valueType: "int", min: "0", required: false}
       - label: "Rating"
         name: "rating"
         widget: "number"
