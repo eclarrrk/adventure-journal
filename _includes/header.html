@@ -1,8 +1,18 @@
 <header class="site-header">
 
-  <h1>
+  {% if page.section == "home" %}
+  <h1 class="site-logo">
+  {% else %}
+  <div class="site-logo">
+  {% endif %}
+
     <a href="{{ "/" | relative_url }}">{{ site.title | escape }}</a>
+    
+  {% if page.section == "home" %}
   </h1>
+  {% else %}
+  </div>
+  {% endif %}
 
   <nav>
     {% include navigation.html navigation=site.data.navigation %}
