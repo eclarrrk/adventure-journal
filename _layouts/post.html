@@ -8,63 +8,64 @@ layout: default
 
 <hr>
 <div class="meta">
-<h2>Details</h2>
-<div class="columns">
-    <div class="column">
-        <small>
-            <time datetime="{{ page.date }}">
-                {{ page.date | date_to_string }}
-            </time>
-        </small>
+    <h2>Hike Details</h2>
+    <div class="columns">
+        <div class="column">
+            <small>
+                <time datetime="{{ page.date }}">
+                    {{ page.date | date_to_string }}
+                </time>
+            </small>
+            <p>
+            {% if page.area %} <strong>{{ page.area }}</strong><br> {% endif %}
+            {% if page.town %} {{ page.town }}{% endif %}{% if page.town and page.state %},{% endif %} {% if page.state %} {{ page.state }} {% endif %}
+            </p>
+            <p>
+                {% if page.website %} <small><a href="{{ page.website }}">Visit website &rarr;</a></small> {% endif %}
+                <br>
+                {% if page.area-map %} <small><a href="{{ page.area-map }}" target="_blank">View trail map &rarr;</a></small> {% endif %}
+            </p>
 
-        {% if page.area %} <h3>{{ page.area }}</h3> {% endif %}
-
-        {% if page.town %} {{ page.town }}{% endif %}{% if page.town and page.state %},{% endif %} {% if page.state %} {{ page.state }} {% endif %}
 
 
-    </div>
+        </div>
+        <div class="column">
 
-    <div class="column">
-        <div class="map__wrapper">
-            <div class="map" id="map">
-            </div>
+            <p>
+                {{ page.distance }}-ish miles | 
+                {{ page.duration }} hours or so
+            </p>
+            <p>
+                {% if page.rating %}
+
+                Rating : {{page.rating}}/5 thumbs
+                {% endif %}<br>
+
+                {% if page.difficulty %}
+                Difficulty : {{page.difficulty}}/5 boots
+                {% endif %}<br>
+
+                {% if page.happiness %}
+                Flynn's Happiness : {{page.happiness}}/5 goldfish
+                {% endif %}
+            </p>
         </div>
     </div>
-</div>
-<p>
+
+    <div class="map__wrapper">
+        <div class="map" id="map">
+        </div>
+    </div>
+
+    <p>
+        {% if page.google-link %} <small><a href="{{ page.google-map }}" target="_blank">View on Google Maps &rarr;</a></small> {% endif %}
+    </p>
 
 
-  <br>
-
-</p>
-<p>
-  {% if page.website %} <small><a href="{{ page.website }}">Visit website &rarr;</a></small> {% endif %}
-  <br>
-  {% if page.area-map %} <small><a href="{{ page.area-map }}" target="_blank">View map &rarr;</a></small> {% endif %}<br>
-  {% if page.google-link %} <small><a href="{{ page.google-map }}" target="_blank">View on Google Maps &rarr;</a></small> {% endif %}
-</p>
 
 
 </div>
-<p>
-  {{ page.distance }}-ish miles<br>
-  {{ page.duration }} hours or so
-</p>
-<p>
-  {% if page.rating %}
 
-  Rating : {{page.rating}}/5 thumbs
-  {% endif %}<br>
-
-  {% if page.difficulty %}
-  Difficulty : {{page.difficulty}}/5 boots
-  {% endif %}<br>
-
-  {% if page.happiness %}
-  Flynn's Happiness : {{page.happiness}}/5 goldfish
-  {% endif %}<br>
-
-</p>
 {{ content }}
 
 <nav aria-label="Adjacent Posts">
