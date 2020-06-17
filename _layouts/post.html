@@ -29,7 +29,10 @@ layout: default
 
 
         </div>
-        <div class="column">
+        <div class="column">    
+            {% if page.summary %}
+            {{page.summary}}
+            {% endif %}
 
             <p>
                 {{ page.distance }}-ish miles | 
