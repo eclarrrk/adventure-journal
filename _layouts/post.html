@@ -3,8 +3,8 @@ layout: default
 ---
 <header class="post-header">
   <h2>{{ page.title }}</h2>
-    {% if page.image %}
-    <img class="post-header__image" src="{{page.image}}" />
+    {% if page.featured-image %}
+    <img class="post-header__image" src="{{page.featured-image}}" />
     {% endif %}
 </header>
 {% include page-intro.html %}
