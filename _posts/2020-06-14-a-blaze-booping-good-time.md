@@ -6,6 +6,12 @@ meta_description: A description may also be set in a post. You can find more
 date: 2020-06-14T17:00:00.000Z
 intro_paragraph: Our first time visiting this area got us wondering why we
   hadn't been here sooner.
+summary: Started at the Urey Overlook parking lot and hiked east to the overlook
+  following blue blazes. Then zig-zagged down the hill on blue/yellow, took a
+  right to stay on blue/yellow, another right to stay on blue/yellow, then
+  straight to follow blue across the road. We took a right on red blazes to hike
+  along Otter Creek for a while. We kept right when red split, then keep right
+  again onto blue. That took us directly back to the parking lot.
 area: Otter Creek/Urey Overlook
 town: York County
 state: PA
