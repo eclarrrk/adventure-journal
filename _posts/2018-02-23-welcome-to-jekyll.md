@@ -11,7 +11,7 @@ summary: Started at the Urey Overlook parking lot and hiked east to the overlook
   right to stay on blue/yellow, another right to stay on blue/yellow, then
   straight to follow blue across the road. We took a right on red blazes to hike
   along Otter Creek for a while. We kept right when red split, then keep right
-  again onto blue. That took us directly back to the parling lot.
+  again onto blue. That took us directly back to the parking lot.
 area: Otter Creek/Urey Overlook
 town: York County
 state: PA
