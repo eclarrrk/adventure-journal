@@ -3,6 +3,9 @@ layout: default
 ---
 <header class="post-header">
   <h2>{{ page.title }}</h2>
+    {% if page.image %}
+    <img class="post-header__image" src="{{page.image}}" />
+    {% endif %}
 </header>
 {% include page-intro.html %}
 
@@ -25,13 +28,10 @@ layout: default
                 <br>
                 {% if page.area-map %} <small><a href="{{ page.area-map }}" target="_blank">View trail map &rarr;</a></small> {% endif %}
             </p>
-
-
-
         </div>
         <div class="column">    
             {% if page.summary %}
-            {{page.summary}}
+            <p>{{page.summary}}</p>
             {% endif %}
 
             <p>
