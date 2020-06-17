@@ -13,7 +13,6 @@ map: '{"type":"Point","coordinates":[-76.3872538,39.8875421]}'
 latitude: "39.88767793790994"
 rating: 5
 happiness: 5
-author: dan_urbanowicz
 longitude: "-76.38614099866876"
 website: https://www.lancasterconservancy.org/preserves/otter-creek/
 area-map: https://www.lancasterconservancy.org/wp-content/uploads/2019/10/K.-Otter-Creek-Trails-Map-2019.pdf
