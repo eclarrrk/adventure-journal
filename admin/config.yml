@@ -23,12 +23,12 @@ collections: # A list of collections the CMS should be able to edit
       - {label: "Meta Description", name: "meta_description", widget: "string", required: false}
       - {label: "Publish Date", name: "date", widget: "datetime", format: "YYYY-MM-DD HH:mm:ss"}
       - {label: "Intro Paragraph", name: "intro_paragraph", widget: "markdown", required: false}
+      - {label: "Hike Summary", hint: "Describe the trails hiked, turns made, blaze colors, etc.", name: "summary", widget: "markdown", required: false}
       - {label: "Body", name: "body", widget: "markdown", required: false}
       # Start custom fields
       - {label: "Area Name", name: "area", widget: "string", required: true}
       - {label: "Town", name: "town", widget: "string", required: true}
       - {label: "State", name: "state", widget: "string", required: true}
-      - {label: "Map JSON", name: "map", widget: "map", required: false}
       - {label: "Latitude", name: "latitude", widget: "string", required: false}
       - {label: "Longitude", name: "longitude", widget: "string", required: false}
       - {label: "Area Website", name: "website", widget: "string", required: false}
