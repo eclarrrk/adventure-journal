@@ -4,7 +4,9 @@ layout: default
 <header class="post-header">
   <h2>{{ page.title }}</h2>
     {% if page.featured-image %}
-    <img class="post-header__image" src="{{page.featured-image}}" />
+    <div class="post-header__image">
+        <img src="{{page.featured-image}}" load="lazy"/>
+    </div>
     {% endif %}
 </header>
 {% include page-intro.html %}
