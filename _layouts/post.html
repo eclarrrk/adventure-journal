@@ -25,17 +25,17 @@ layout: default
             {% if page.area %} <strong>{{ page.area }}</strong><br> {% endif %}
             {% if page.town %} {{ page.town }}{% endif %}{% if page.town and page.state %},{% endif %} {% if page.state %} {{ page.state }} {% endif %}
             </p>
+
+            {% if page.latitude and page.longitude %}
+            <p><span id="hikeLat"></span>, <span id="hikeLng"></span></p>
+            {% endif %}
             <p>
                 {% if page.website %} <small><a href="{{ page.website }}">Visit website &rarr;</a></small> {% endif %}
                 <br>
                 {% if page.area-map %} <small><a href="{{ page.area-map }}" target="_blank">View trail map &rarr;</a></small> {% endif %}
             </p>
         </div>
-        <div class="column">    
-            {% if page.summary %}
-            <p>{{page.summary}}</p>
-            {% endif %}
-
+        <div class="column">  
             <p>
                 {{ page.distance }}-ish miles | 
                 {{ page.duration }} hours or so
@@ -47,13 +47,18 @@ layout: default
                 {% endif %}<br>
 
                 {% if page.difficulty %}
-                Difficulty : {{page.difficulty}}/5 boots
+                Difficulty : {{page.difficulty}}/4
                 {% endif %}<br>
 
                 {% if page.happiness %}
                 Flynn's Happiness : {{page.happiness}}/5 goldfish
                 {% endif %}
             </p>
+              
+            {% if page.summary %}
+            <p>{{page.summary}}</p>
+            {% endif %}
+
         </div>
     </div>
 
@@ -90,6 +95,19 @@ layout: default
 
 {% if page.latitude and page.longitude %}
 <script>
+function ConvertDDToDMS(D){
+    return [0|D, '° ', 0|(D<0?D=-D:D)%1*60, "' ", 0|D*60%1*60, '"'].join('');
+}
+console.log(hikeLat);
+var hikeLatDMS = ConvertDDToDMS( {{ page.latitude | json }} );
+var hikeLngDMS = ConvertDDToDMS( {{ page.longitude | json }}, true );
+
+document.getElementById("hikeLat").innerHTML=hikeLatDMS;
+document.getElementById("hikeLng").innerHTML=hikeLngDMS;
+
+</script>
+
+<script>
 function initMap() {
   var myLat = {{ page.latitude | json }};
   var myLng = {{ page.longitude | json }};
@@ -97,7 +115,7 @@ function initMap() {
     zoom: 14,
     center: {
       lat: myLat,
-      lng:  myLng
+      lng: myLng
     },
     styles: [
     {
