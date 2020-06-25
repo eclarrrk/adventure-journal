@@ -7,12 +7,14 @@ layout: compress
 
   {% include head.html %}
 
-  <body>
+  <body {% if page.is_post %}class="post"{% endif %}>
+
 
     {% include header.html %}
 
     <main>
 
+      
       {{ content }}
 
     </main>
