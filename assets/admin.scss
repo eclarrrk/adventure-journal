@@ -2,16 +2,16 @@
 # mobile admin styles
 ---
 @charset "utf-8";
-
+  [class*="AppMainContainer"],
+  [class*="AppHeaderContent"] {
+    min-width: 0;
+  }
+  html body #nc-root {
 @media (max-width: 799px) {
   [class*="SidebarContainer-card"] {
     position: static;
     width: 100%;
     margin-bottom: 30px;
-  }
-  [class*="AppMainContainer"],
-  [class*="AppHeaderContent"] {
-    min-width: 0;
   }
   [class*="AppHeaderButton-button-buttonActive-buttonActive-buttonActive-buttonActive-AppHeaderButton"], [class*="AppHeaderNavLink-AppHeaderButton-button-buttonActive-buttonActive-buttonActive-buttonActive-AppHeaderButton"] {
     margin: 0;
@@ -97,3 +97,4 @@
   }
   /* End Blog */
 }
+  }
