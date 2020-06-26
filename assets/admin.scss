@@ -88,13 +88,21 @@ html body #nc-root {
     width: 100%;
     min-width: 0;
   }
+  [class*="ViewControls"] {
+    display: none;
+  }
   [class*="ToolbarToggle"] {
-    flex-direction: column;
-  }[class*="SplitPane"] {
-    flex-direction: column;
+    flex-direction: column !important;
+  }
+  [class*="SplitPane"] {
+    flex-direction: column !important;
   }
   [class*="SplitPane"] > * {
-    width: 100%;
+    width: 100% !important;
+  }
+  .Pane2,
+  .Pane2 iframe {
+    display: none !important;
   }
   /* End Blog */
 }
