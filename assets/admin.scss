@@ -2,11 +2,12 @@
 # mobile admin styles
 ---
 @charset "utf-8";
+  
+html body #nc-root {
   [class*="AppMainContainer"],
   [class*="AppHeaderContent"] {
     min-width: 0;
   }
-  html body #nc-root {
 @media (max-width: 799px) {
   [class*="SidebarContainer-card"] {
     position: static;
