@@ -23,9 +23,9 @@ area-map: https://www.lancasterconservancy.org/wp-content/uploads/2019/10/K.-Ott
 google-link: https://www.google.com/maps/place/Urey+Overlook+Parking/@39.887184,-76.386774,16z/data=!4m12!1m6!3m5!1s0x0:0xa56a4cf03cb88ce5!2sUrey+Overlook+Parking!8m2!3d39.8874885!4d-76.3871435!3m4!1s0x0:0xa56a4cf03cb88ce5!8m2!3d39.8874885!4d-76.3871435?hl=en-US
 distance: 4.5
 duration: 2
-difficulty: 3
-happiness: 5
+difficulty: "3"
+happiness: "4"
 map: '{"type":"Point","coordinates":[-76.3872538,39.8875421]}'
 categories: misc
-rating: 5
+rating: "5"
 ---
