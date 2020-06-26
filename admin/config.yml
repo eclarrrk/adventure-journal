@@ -39,7 +39,7 @@ collections: # A list of collections the CMS should be able to edit
         hint: "in miles"
         name: "distance"
         widget: "number"
-        step: .1
+        step: 0.1
         min: 0
         max: 9999
         valueType: "float"
@@ -48,7 +48,7 @@ collections: # A list of collections the CMS should be able to edit
         hint: "in hours"
         name: "duration"
         widget: "number"
-        step: .1
+        step: 0.1
         min: 0
         max: 9999
         valueType: "float"
