@@ -57,7 +57,7 @@ collections: # A list of collections the CMS should be able to edit
         name: "rating"
         widget: "select"
         required: false
-        options: ["1", "2", "3", "4", "5"]
+        options: ["1", "2", "3"]
       - label: "Difficulty"
         name: "difficulty"
         widget: "select"
@@ -69,7 +69,7 @@ collections: # A list of collections the CMS should be able to edit
         name: "happiness"
         widget: "select"
         required: false
-        options: ["1", "2", "3", "4", "5"]
+        options: ["1", "2", "3"]
     # PAGES
   - name: "page"
     label: "Page"
