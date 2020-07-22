@@ -12,11 +12,6 @@ layout: default
   <ul>
     {% for place in site.places %}
       <li>
-        <time datetime="{{ post.date }}">
-          <small>
-            {{ place.date | date_to_string }}
-          </small>
-        </time>
 
         <h3><a href="{{ place.url }}">{{ place.title }}</a></h3>
 
