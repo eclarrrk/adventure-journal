@@ -26,7 +26,7 @@ difficulty: "3"
 area-map: https://www.lancasterconservancy.org/wp-content/uploads/2019/10/K.-Otter-Creek-Trails-Map-2019.pdf
 map: '{"type":"Point","coordinates":[-76.3872538,39.8875421]}'
 categories: misc
-featured-image: /assets/img/uploads/img_9880.jpg
+featured-image: ""
 rating: "5"
 ---
 Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec ullamcorper nulla non metus auctor fringilla. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
