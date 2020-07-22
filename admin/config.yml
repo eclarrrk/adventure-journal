@@ -88,7 +88,7 @@ collections: # A list of collections the CMS should be able to edit
       - {label: "Intro Paragraph", name: "intro_paragraph", widget: "markdown", required: false}
       - {label: "Body", name: "body", widget: "markdown", required: false}
     # POSTS
-  - name: "place" # Used in routes, ie.: /admin/collections/:slug/edit
+  - name: "places" # Used in routes, ie.: /admin/collections/:slug/edit
     label: "Place" # Used in the UI, ie.: "New Post"
     folder: "_place/" # The path to the folder where the documents are stored
     sort: "date:desc" # Default is title:asc
