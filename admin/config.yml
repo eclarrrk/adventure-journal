@@ -27,8 +27,8 @@ collections: # A list of collections the CMS should be able to edit
         widget: "relation"
         collection: "place"
         searchFields: ["title", "town"]
-        valueField: ["title", "permalink"]
-        displayFields: ["title", "-", "town", ",", "state"] 
+        valueField: ["title"]
+        displayFields: ["title", "town", "state"] 
       - {label: "Featured Image", name: "featured-image", widget: "image", required: false}
       - {label: "Intro Paragraph", name: "intro_paragraph", widget: "markdown", required: false}
       - {label: "Hike Summary", hint: "Describe the trails hiked, turns made, blaze colors, etc.", name: "summary", widget: "markdown", required: false}
@@ -89,7 +89,7 @@ collections: # A list of collections the CMS should be able to edit
     folder: "_places" # The path to the folder where the documents are stored
     sort: "date:desc" # Default is title:asc
     create: true # Allow users to create new documents in this collection
-    slug: "{{slug}}"
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields: # The fields each document in this collection have
       - {label: "Layout", name: "layout", widget: "hidden", default: "place"}
       - {label: "Title", name: "title", widget: "string", tagname: "h1"}
