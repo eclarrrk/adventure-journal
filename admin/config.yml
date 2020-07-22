@@ -17,6 +17,8 @@ collections: # A list of collections the CMS should be able to edit
     sort: "date:desc" # Default is title:asc
     create: true # Allow users to create new documents in this collection
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    editor:
+      preview: false
     fields: # The fields each document in this collection have
       - {label: "Layout", name: "layout", widget: "hidden", default: "post"}
       - {label: "Title", name: "title", widget: "string", tagname: "h1"}
@@ -27,7 +29,7 @@ collections: # A list of collections the CMS should be able to edit
         widget: "relation"
         collection: "places"
         searchFields: ["title", "town"]
-        valueField: "{{slug}}""
+        valueField: "{{slug}}"
         displayFields: ["title", "town", "state"] 
       - {label: "Featured Image", name: "featured-image", widget: "image", required: false}
       - {label: "Intro Paragraph", name: "intro_paragraph", widget: "markdown", required: false}
@@ -75,6 +77,8 @@ collections: # A list of collections the CMS should be able to edit
     sort: "title:asc"
     create: false
     slug: "{{slug}}"
+    editor:
+      preview: false
     fields:
       - {label: "Layout", name: "layout", widget: "hidden", default: "page"}
       - {label: "Title", name: "title", widget: "string", tagname: "h1"}
@@ -90,7 +94,9 @@ collections: # A list of collections the CMS should be able to edit
     sort: "date:desc" # Default is title:asc
     create: true # Allow users to create new documents in this collection
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
-    permalink: /places/:path/ 
+    editor:
+      preview: false
+    permalink: /places/:path/
     fields: # The fields each document in this collection have
       - {label: "Layout", name: "layout", widget: "hidden", default: "place"}
       - {label: "Title", name: "title", widget: "string", tagname: "h1"}
