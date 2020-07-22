@@ -68,6 +68,10 @@ kramdown:
 #  - _redirects
 #  - _headers
 
+collections:
+  places:
+    output: true
+
 # Exclude from processing.
 # The following items will not be processed.
 exclude:
