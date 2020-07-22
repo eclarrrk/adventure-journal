@@ -1,0 +1,35 @@
+---
+layout: default
+---
+
+<h1 class="page__title">{{ page.title }}</h1>
+
+{% include page-intro.html %}
+
+{{ content }}
+
+<section>
+
+  <h2>Places</h2>
+
+  <ul>
+    {% for place in site.places %}
+      <li>
+        <time datetime="{{ post.date }}">
+          <small>
+            {{ post.date | date_to_string }}
+          </small>
+        </time>
+
+        <h3><a href="{{ post.url }}">{{ post.title }}</a></h3>
+
+        <p>
+        {% if post.area %}{{ post.area }}<br>{% endif %}
+        {% if post.town %} {{ post.town }}{% endif %}{% if post.town and post.state %},{% endif %} {% if post.state %} {{ post.state }} {% endif %}
+        </p>
+
+      </li>
+    {% endfor %}
+  </ul>
+
+</section>
