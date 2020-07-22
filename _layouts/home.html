@@ -22,20 +22,9 @@ layout: default
 
 
     <ul>
-      {% for place in site.places %}
+      {% for post in site.place %}
         <li>
-          <time datetime="{{ place.date }}">
-            <small>
-              {{ place.date | date_to_string }}
-            </small>
-          </time>
-
-          <h3><a href="{{ place.url }}">{{ place.title }}</a></h3>
-
-          <p>
-          {% if place.town %} {{ place.town }}{% endif %}{% if place.town and place.state %},{% endif %} {% if place.state %} {{ place.state }} {% endif %}
-          </p>
-
+          <a href="{{ post.url }}">{{ post.title }}</a>
         </li>
       {% endfor %}
     </ul>
