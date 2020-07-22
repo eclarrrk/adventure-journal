@@ -27,7 +27,7 @@ collections: # A list of collections the CMS should be able to edit
         widget: "relation"
         collection: "place"
         searchFields: ["title", "town"]
-        valueField: ["title"]
+        valueField: "title"
         displayFields: ["title", "town", "state"] 
       - {label: "Featured Image", name: "featured-image", widget: "image", required: false}
       - {label: "Intro Paragraph", name: "intro_paragraph", widget: "markdown", required: false}
