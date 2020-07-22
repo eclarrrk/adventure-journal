@@ -1,11 +1,29 @@
 ---
 layout: default
+
+field_intro_paragraph : {{ place.intro_paragraph }}
+field_state : {{ place.state }}
+field_town : {{ place.town }}
+field_latitude : {{ place.latitude }}
+field_longitude : {{ place.longitude }}
+field_google-link : {{ place.google-link }}
+field_website : {{ place.website }}
+field_area-map : {{ place.area-map }}
+field_distance : {{ place.distance }}
+field_duration : {{ place.duration }}
+field_difficulty : {{ place.difficulty }}
+field_rating : {{ place.rating }}
+field_happiness : {{ place.happiness }}
+
 ---
 <header class="post__header">
     <h1 class="post__title">{{ page.title }}</h1>
     {% include page-intro.html %}
 
     {% if page.featured-image %}
+
+    {{place.field_town}}
+
     <div class="post__image">
         {% if page.latitude and page.longitude %}
         <div class="post__lat-lng">
@@ -30,7 +48,7 @@ layout: default
             </div>
 
             <div class="panel__row">
-            {% if page.area %} <strong>{{ page.area }}</strong><br> {% endif %}
+            <strong>{{ page.title }}</strong><br> 
             {% if page.town %} {{ page.town }}{% endif %}{% if page.town and page.state %},{% endif %} {% if page.state %} {{ page.state }} {% endif %}
             </div>
 
