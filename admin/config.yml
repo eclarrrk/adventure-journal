@@ -25,7 +25,7 @@ collections: # A list of collections the CMS should be able to edit
       - label: "Hike Location"
         name: "place"
         widget: "relation"
-        collection: "place"
+        collection: "places"
         searchFields: ["title", "town"]
         valueField: "title"
         displayFields: ["title", "town", "state"] 
