@@ -9,7 +9,8 @@ layout: default
     <div class="post__image">
         {% if page.latitude and page.longitude %}
         <div class="post__lat-lng">
-            <span class="text--no-wrap" id="hikeLat"></span>, <span class="text--no-wrap" id="hikeLng"></span>
+            <span class="text--no-wrap" id="hikeLat"></span>,
+            <span class="text--no-wrap" id="hikeLng"></span>
         </div>
         {% endif %}
         <img src="{{page.featured-image}}"/>
@@ -18,6 +19,22 @@ layout: default
 </header>
 <div class="post__body">
     <div class="post__sidebar">
+        {% for place in site.places %}
+        {% capture place_slug_pretty %}{{ page.place | slice: 11, 999 }}{% endcapture %}
+        {% if place.slug == place_slug_pretty %}
+        <div class="panel">
+            <div class="panel__row">
+                <strong><a href="{{ place.url }}">{{ place.title }}</a></strong>
+                <p></p>
+            </div>
+            <div class="panel__row">
+                {% if place.area %} <strong>{{ page.area }}</strong><br> {% endif %}
+                {% if place.town %} {{ place.town }}{% endif %}{% if place.town and place.state %},{% endif %} {% if place.state %} {{ place.state }} {% endif %}
+                </div>
+    
+        </div>
+        {% endif %}
+        {% endfor %}
 
         <h3>location: {{ page.place }}</h3>
     
@@ -31,10 +48,6 @@ layout: default
                 </time>
             </div>
 
-            <div class="panel__row">
-            {% if page.area %} <strong>{{ page.area }}</strong><br> {% endif %}
-            {% if page.town %} {{ page.town }}{% endif %}{% if page.town and page.state %},{% endif %} {% if page.state %} {{ page.state }} {% endif %}
-            </div>
 
             {% comment %}
             {% if page.latitude and page.longitude %}
