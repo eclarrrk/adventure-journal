@@ -1,0 +1,26 @@
+---
+layout: default
+---
+
+<h1 class="page__title">{{ page.title }}</h1>
+
+{% include page-intro.html %}
+
+{{ content }}
+
+<section>
+  <ul>
+    {% for place in site.places %}
+      <li>
+
+        <h3><a href="{{ place.url }}">{{ place.title }}</a></h3>
+
+        <p>
+        {% if place.town %} {{ place.town }}{% endif %}{% if place.town and place.state %},{% endif %} {% if place.state %} {{ place.state }} {% endif %}
+        </p>
+
+      </li>
+    {% endfor %}
+  </ul>
+
+</section>

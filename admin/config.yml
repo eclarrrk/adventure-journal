@@ -17,24 +17,24 @@ collections: # A list of collections the CMS should be able to edit
     sort: "date:desc" # Default is title:asc
     create: true # Allow users to create new documents in this collection
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    editor:
+      preview: false
     fields: # The fields each document in this collection have
       - {label: "Layout", name: "layout", widget: "hidden", default: "post"}
       - {label: "Title", name: "title", widget: "string", tagname: "h1"}
       - {label: "Meta Description", name: "meta_description", widget: "string", required: false}
       - {label: "Hike Date", name: "date", widget: "datetime", format: "YYYY-MM-DD HH:mm:ss"}
+      - label: "Hike Location"
+        name: "place"
+        widget: "relation"
+        collection: "places"
+        searchFields: ["title", "town"]
+        valueField: "{{slug}}"
+        displayFields: ["title", "town", "state"] 
       - {label: "Featured Image", name: "featured-image", widget: "image", required: false}
       - {label: "Intro Paragraph", name: "intro_paragraph", widget: "markdown", required: false}
       - {label: "Hike Summary", hint: "Describe the trails hiked, turns made, blaze colors, etc.", name: "summary", widget: "markdown", required: false}
       - {label: "Body", name: "body", widget: "markdown", required: false}
-      # Start custom fields
-      - {label: "Area Name", name: "area", widget: "string", required: true}
-      - {label: "Town", name: "town", widget: "string", required: true}
-      - {label: "State", name: "state", widget: "string", required: true}
-      - {label: "Latitude", name: "latitude", widget: "string", required: false}
-      - {label: "Longitude", name: "longitude", widget: "string", required: false}
-      - {label: "Area Website", name: "website", widget: "string", required: false}
-      - {label: "Area Map Link", name: "area-map", widget: "string", required: false}
-      - {label: "Google Maps Link", name: "google-link", widget: "string", required: false}
       - label: "Distance"
         hint: "in miles (i.e. 4.25)"
         name: "distance"
@@ -77,6 +77,8 @@ collections: # A list of collections the CMS should be able to edit
     sort: "title:asc"
     create: false
     slug: "{{slug}}"
+    editor:
+      preview: false
     fields:
       - {label: "Layout", name: "layout", widget: "hidden", default: "page"}
       - {label: "Title", name: "title", widget: "string", tagname: "h1"}
@@ -85,3 +87,28 @@ collections: # A list of collections the CMS should be able to edit
       - {label: "Section", name: "section", widget: "hidden", default: "{{name}}"}
       - {label: "Intro Paragraph", name: "intro_paragraph", widget: "markdown", required: false}
       - {label: "Body", name: "body", widget: "markdown", required: false}
+    # POSTS
+  - name: "places" # Used in routes, ie.: /admin/collections/:slug/edit
+    label: "Place" # Used in the UI, ie.: "New Post"
+    folder: "_place/" # The path to the folder where the documents are stored
+    sort: "date:desc" # Default is title:asc
+    create: true # Allow users to create new documents in this collection
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    editor:
+      preview: false
+    permalink: /places/:path/
+    fields: # The fields each document in this collection have
+      - {label: "Layout", name: "layout", widget: "hidden", default: "place"}
+      - {label: "Title", name: "title", widget: "string", tagname: "h1"}
+      - {label: "Meta Description", name: "meta_description", widget: "string", required: false}
+      - {label: "Date", name: "date", widget: "datetime", format: "YYYY-MM-DD HH:mm:ss"}
+      - {label: "Featured Image", name: "featured-image", widget: "image", required: false}
+      - {label: "Intro Paragraph", name: "intro_paragraph", widget: "markdown", required: false}
+      - {label: "Body", name: "body", widget: "markdown", required: false}
+      - {label: "Town", name: "town", widget: "string", required: true}
+      - {label: "State", name: "state", widget: "string", required: true}
+      - {label: "Latitude", name: "latitude", widget: "string", required: false}
+      - {label: "Longitude", name: "longitude", widget: "string", required: false}
+      - {label: "Area Website", name: "website", widget: "string", required: false}
+      - {label: "Area Map Link", name: "area-map", widget: "string", required: false}
+      - {label: "Google Maps Link", name: "google-link", widget: "string", required: false}

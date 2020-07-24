@@ -14,3 +14,14 @@
     font-weight: 900;
     font-style: normal;
 }
+
+@font-face {
+    font-family: 'Parkly';
+    src: 
+        url('fonts/Parkly-Regular.woff2') format('woff2'),
+        url('fonts/Parkly-Regular.woff') format('woff'),
+        url('fonts/Parkly-Regular.otf') format('opentype'),
+        url('fonts/Parkly-Regular.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+}
