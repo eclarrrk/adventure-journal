@@ -3,7 +3,7 @@ layout: place
 latitude: "39.887611"
 area: Otter Creek/Urey Overlook
 title: Otter Creek
-date: 2020-07-19 21:59:55
+date: 2020-07-19 21:59:57
 featured-image: ""
 town: Shenks Ferry
 state: PA
