@@ -1,9 +1,8 @@
 ---
 layout: post
-meta_description: A description may also be set in a post. You can find more
-  information about it in pages/about.md.
+meta_description: ""
 date: 2020-06-14T17:00:00.000Z
-place: Otter Creek
+place: 2020-07-20-otter-creek
 summary: Started at the Urey Overlook parking lot and hiked east to the overlook
   following blue blazes. Then zig-zagged down the hill on blue/yellow, took a
   right to stay on blue/yellow, another right to stay on blue/yellow, then
