@@ -28,11 +28,11 @@ layout: default
                     {% for place in site.places %}<!--  -->
                     {% capture place_slug_pretty %}{{ post.place | slice: 11,999
                     }}{% endcapture %} {% if place.slug == place_slug_pretty %}
-                    {{ place.title }} {% if place.area %} {{ page.area }}<br />
-                    {% endif %} {% if place.town %}&nbsp;@&nbsp; {{ place.town
-                    }}{% endif %}{% if place.town and place.state %},{% endif %}
-                    {% if place.state %} {{ place.state }} {% endif %} {% endif
-                    %} {% endfor %}
+                    {{ place.title }} {% if place.area %} {{ page.area }} {%
+                    endif %} {% if place.town %}&nbsp;@&nbsp; {{ place.town }}{%
+                    endif %}{% if place.town and place.state %},{% endif %} {%
+                    if place.state %} {{ place.state }} {% endif %} {% endif %}
+                    {% endfor %}
                 </small>
             </p>
         </li>
