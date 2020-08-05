@@ -1,22 +1,24 @@
 // site colours
 $green--d: #3a4c30;
 $khaki: #c1ba90;
-$khaki--l: #dbd6b8;
+$khaki--l: #eae6e1;
+$brown: #53483a;
 
 $text-color: #495244;
 $text-color-negative: $khaki--l;
 $brand-color: $green--d;
 $link-color: #0b5e86;
-$link-hover-color: rgb(0,57,78);
-$grey-bg-color: rgb(243,243,243);
+$link-hover-color: rgb(0, 57, 78);
+$grey-bg-color: rgb(243, 243, 243);
 $hairline-color: $khaki;
-$selection-bg-color: rgba(131, 197, 94, .5);
-
+$selection-bg-color: rgba(131, 197, 94, 0.5);
 
 // typographic defaults
-$base-font: nps, system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Droid Sans,Helvetica Neue;
+$base-font: nps, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
+    Oxygen, Ubuntu, Cantarell, Droid Sans, Helvetica Neue;
 $heading-font: granville, serif;
-$heading-font: 'Parkly', sans-serif;
+$heading-font: "Parkly", sans-serif;
+$sign-font: "Roboto Condensed", sans-serif;
 $code-font: Courier, monospace;
 $base-font-weight: 300;
 $bold-font-weight: 600;
