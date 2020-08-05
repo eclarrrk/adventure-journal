@@ -106,15 +106,15 @@ field_happiness: { { place.happiness } }
     <h2 class="sr-only">Adjacent Posts</h2>
     <ul>
         {% if page.previous.url %}
-        <li>
+        <li class="post-nav__prev">
             <a href="{{page.previous.url}}" rel="prev"
-                >&laquo; {{page.previous.title}}</a
+                >{% include np-arrow-svg.html %} {{page.previous.title}}</a
             >
         </li>
         {% endif %} {% if page.next.url %}
-        <li>
+        <li class="post-nav__next">
             <a href="{{page.next.url}}" rel="next"
-                >{{page.next.title}} &raquo;</a
+                >{{page.next.title}} {% include np-arrow-svg.html %}</a
             >
         </li>
         {% endif %}

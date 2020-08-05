@@ -18,9 +18,9 @@ layout: default
 </header>
 <div class="post__body">
     <div class="post__sidebar">
-        {% for place in site.places %} {% capture place_slug_pretty %}{{
-        page.place | slice: 11, 999 }}{% endcapture %} {% if place.slug ==
-        place_slug_pretty %}
+        {% for place in site.places %}<!--  -->
+        {% capture place_slug_pretty %}{{ page.place | slice: 11, 999 }}{%
+        endcapture %} {% if place.slug == place_slug_pretty %}
         <div class="panel">
             <div class="panel__row">
                 <strong><a href="{{ place.url }}">{{ place.title }}</a></strong>
