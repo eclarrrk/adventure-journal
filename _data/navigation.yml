@@ -1,7 +1,6 @@
 # specify main menu items here
 
-
-- text: Hikes
+- text: Adventures
   url: /blog
 - text: Places
   url: /places
