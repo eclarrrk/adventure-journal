@@ -14,8 +14,8 @@ summary: Started at the Urey Overlook parking lot and hiked east to the overlook
   again onto blue. That took us directly back to the parking lot.
 distance: 4.5
 activity: hike
-duration: 2
-happiness: "4"
+duration: "2.5"
+happiness: "3"
 latitude: "39.88767793790994"
 area: Otter Creek/Urey Overlook
 google-link: https://www.google.com/maps/place/Urey+Overlook+Parking/@39.887184,-76.386774,16z/data=!4m12!1m6!3m5!1s0x0:0xa56a4cf03cb88ce5!2sUrey+Overlook+Parking!8m2!3d39.8874885!4d-76.3871435!3m4!1s0x0:0xa56a4cf03cb88ce5!8m2!3d39.8874885!4d-76.3871435?hl=en-US
@@ -28,7 +28,7 @@ area-map: https://www.lancasterconservancy.org/wp-content/uploads/2019/10/K.-Ott
 map: '{"type":"Point","coordinates":[-76.3872538,39.8875421]}'
 categories: misc
 featured-image: ""
-rating: "5"
+rating: "3"
 ---
 Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec ullamcorper nulla non metus auctor fringilla. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 
