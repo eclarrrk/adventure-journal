@@ -1,90 +1,77 @@
 ---
 layout: default
 ---
+
+
 <header class="post__header">
     <h1 class="post__title">{{ page.title }}</h1>
+
+    <time datetime="{{ page.date }}">
+        {{ page.date | date_to_string }}
+    </time>
+
+    {% for place in site.places %}
+    {% capture place_slug_pretty %}{{ page.place | slice: 11, 999 }}{% endcapture %}
+    {% if place.slug == place_slug_pretty %}
+    {% if page.latitude and page.longitude %}
+    <div class="post__lat-lng">
+        <span class="text--no-wrap" id="hikeLat"></span>,
+        <span class="text--no-wrap" id="hikeLng"></span>
+    </div>
+    {% endif %}
+    {% endif %}
+    {% endfor %}
+
     {% include page-intro.html %}
 
     {% if page.featured-image %}
     <div class="post__image">
-        {% if page.latitude and page.longitude %}
-        <div class="post__lat-lng">
-            <span class="text--no-wrap" id="hikeLat"></span>,
-            <span class="text--no-wrap" id="hikeLng"></span>
-        </div>
-        {% endif %}
         <img src="{{page.featured-image}}"/>
     </div>
     {% endif %}
 </header>
 <div class="post__body">
     <div class="post__sidebar">
+
         {% for place in site.places %}
         {% capture place_slug_pretty %}{{ page.place | slice: 11, 999 }}{% endcapture %}
         {% if place.slug == place_slug_pretty %}
         <div class="panel">
             <div class="panel__row">
-                <strong><a href="{{ place.url }}">{{ place.title }}</a></strong>
-                <p></p>
+                <h3><a href="{{ place.url }}">{{ place.title }}</a></h3>
             </div>
             <div class="panel__row">
                 {% if place.area %} <strong>{{ page.area }}</strong><br> {% endif %}
                 {% if place.town %} {{ place.town }}{% endif %}{% if place.town and place.state %},{% endif %} {% if place.state %} {{ place.state }} {% endif %}
+            </div>
+            
+            <div class="panel__row">
+                
+                {% if place.google-link %} 
+                <div>
+                    <a href="{{ place.google-map }}" target="_blank">Google Maps &rarr;</a>
                 </div>
+                {% endif %}
+
+                
+                {% if place.website %} 
+                <div>
+                    <a href="{{ place.website }}">Website &rarr;</a>
+                </div>
+                {% endif %}
+
+                
+                {% if place.area-map %} 
+                <div>
+                    <a href="{{ place.area-map }}" target="_blank">Trail map &rarr;</a>
+                </div>
+                {% endif %}
+            </div>
     
         </div>
         {% endif %}
         {% endfor %}
-
-        <h3>location: {{ page.place }}</h3>
     
-        <h2 class="sr-only">Hike Details</h2>
-
-        <div class="panel">
-
-            <div class="panel__row">
-                <time datetime="{{ page.date }}">
-                    {{ page.date | date_to_string }}
-                </time>
-            </div>
-
-
-            {% comment %}
-            {% if page.latitude and page.longitude %}
-            <div class="panel__row">
-                <span class="text--no-wrap" id="hikeLat"></span>, <span class="text--no-wrap" id="hikeLng"></span>
-            </div>
-            {% endif %}
-            {% endcomment %}
-
-            {% if page.google-link or page.website or page.area-map %}
-            
-            <div class="panel__row">
-                
-                {% if page.google-link %} 
-                <div>
-                    <a href="{{ page.google-map }}" target="_blank">Google Maps &rarr;</a>
-                </div>
-                {% endif %}
-
-                
-                {% if page.website %} 
-                <div>
-                    <a href="{{ page.website }}">Website &rarr;</a>
-                </div>
-                {% endif %}
-
-                
-                {% if page.area-map %} 
-                <div>
-                    <a href="{{ page.area-map }}" target="_blank">Trail map &rarr;</a>
-                </div>
-                {% endif %}
-            </div>
-            {% endif %}
-
-        </div>
-
         <div class="panel">
             <div class="panel__row">
                 <div>
