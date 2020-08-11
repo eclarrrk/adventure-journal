@@ -2,35 +2,40 @@
 layout: default
 ---
 
-<h1 class="page__title">{{ page.title }}</h1>
+<h1 class="page__title">Our Adventures</h1>
 
 {% include page-intro.html %}
-
+<!--  -->
 {{ content }}
 
 <section>
+    <h2 class="sr-only">Posts</h2>
 
-  <h2>Posts</h2>
+    <ul>
+        {% for post in site.posts %} {% assign author =
+        site.data.authors[post.author] %}
+        <li>
+            <time datetime="{{ post.date }}">
+                <small>
+                    {{ post.date | date_to_string }}
+                </small>
+            </time>
 
-  <ul>
-    {% for post in site.posts %}
-    {% assign author = site.data.authors[post.author] %}
-      <li>
-        <time datetime="{{ post.date }}">
-          <small>
-            {{ post.date | date_to_string }}
-          </small>
-        </time>
+            <h3><a href="{{ post.url }}">{{ post.title }}</a></h3>
 
-        <h3><a href="{{ post.url }}">{{ post.title }}</a></h3>
-
-        <p>
-        {% if post.area %}{{ post.area }} -- {% endif %}
-        {% if post.town %} {{ post.town }}{% endif %}{% if post.town and post.state %},{% endif %} {% if post.state %} {{ post.state }} {% endif %}
-        </p>
-
-      </li>
-    {% endfor %}
-  </ul>
-
+            <p>
+                <small>
+                    {% for place in site.places %}<!--  -->
+                    {% capture place_slug_pretty %}{{ post.place | slice: 11,999
+                    }}{% endcapture %} {% if place.slug == place_slug_pretty %}
+                    {{ place.title }} {% if place.area %} {{ page.area }} {%
+                    endif %} {% if place.town %}&nbsp;@&nbsp; {{ place.town }}{%
+                    endif %}{% if place.town and place.state %},{% endif %} {%
+                    if place.state %} {{ place.state }} {% endif %} {% endif %}
+                    {% endfor %}
+                </small>
+            </p>
+        </li>
+        {% endfor %}
+    </ul>
 </section>

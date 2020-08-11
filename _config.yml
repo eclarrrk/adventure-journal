@@ -16,7 +16,7 @@
 title: Claniels Adventure Journal
 email: eclarkdesigns@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
-  Keeping track of our adventures before we lose track of life.
+    Keeping track of our adventures before we lose track of life.
 baseurl: "" # the subpath of your site if applicable, e.g. /blog
 url: "https://adventure-journal.netlify.app"
 
@@ -35,31 +35,30 @@ analytics: false
 
 # Compress CSS
 sass:
-  style: compressed
-  sass_dir: _sass
+    style: compressed
+    sass_dir: _sass
 
 # Compress HTML (in liquid via layouts/compress.html)
 compress_html:
-  clippings: all
+    clippings: all
 
 # set some common post defaults
 defaults:
-  -
-    scope:
-      path: "" # an empty string here means all files in the project
-      type: "posts" # previously `post` in Jekyll 2.2.
-    values:
-      layout: "post" # set the correct default template for a post
-      section: "post" # set the root section name
-      is_post: true # automatically set is_post=true for all posts
+    - scope:
+          path: "" # an empty string here means all files in the project
+          type: "posts" # previously `post` in Jekyll 2.2.
+      values:
+          layout: "post" # set the correct default template for a post
+          section: "post" # set the root section name
+          is_post: true # automatically set is_post=true for all posts
 
 # Build settings
 markdown: kramdown
 
 # Kramdown options
 kramdown:
-  # Prevent IDs from being added to h1-h6 tags
-  auto_ids: false
+    # Prevent IDs from being added to h1-h6 tags
+    auto_ids: false
 
 # Include in processing (e.g. Netlify directives)
 # Uncomment before use
@@ -69,21 +68,21 @@ kramdown:
 #  - _headers
 
 collections:
-  places:
-    output: true
+    places:
+        output: true
 
 # Exclude from processing.
 # The following items will not be processed.
 exclude:
-  - README.md
-  - LICENSE.txt
-  - netlify.toml
-  - feed.xml
-  - Gemfile
-  - Gemfile.lock
-  - docker-compose.yml
-  - node_modules
-  - vendor/bundle/
-  - vendor/cache/
-  - vendor/gems/
-  - vendor/ruby/
+    - README.md
+    - LICENSE.txt
+    - netlify.toml
+    - feed.xml
+    - Gemfile
+    - Gemfile.lock
+    - docker-compose.yml
+    - node_modules
+    - vendor/bundle/
+    - vendor/cache/
+    - vendor/gems/
+    - vendor/ruby/

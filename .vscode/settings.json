@@ -1,3 +1,11 @@
 {
-    "html.format.enable": false
+    "html.format.enable": false,
+    "filewatcher.commands": [
+        {
+            "match": "/assets/uploads/*",
+            "isAsync": true,
+            "cmd": "echo '${file} file content Changed'",
+            "event": "onFolderChange"
+        }
+    ]
 }

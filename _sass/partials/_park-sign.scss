@@ -1,0 +1,63 @@
+.park-sign {
+    font-size: 1rem;
+    font-family: $sign-font;
+    position: relative;
+    z-index: 10;
+    max-width: 700px;
+    margin: 0 auto;
+    display: flex;
+}
+.park-sign__content {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: stretch;
+    text-align: center;
+    text-transform: uppercase;
+    padding: 0;
+    height: calc((100vw - 2rem) * 0.5883);
+    @media (min-width: 732px) {
+        height: 411px;
+    }
+}
+.park-sign__title {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 11;
+    color: white;
+    font-family: $sign-font;
+    padding: 12.5% 8% 4% 11.3%;
+    margin: 0;
+    flex: 1;
+    font-size: clamp(1.4rem, calc(1.2rem + 2vw), 3rem);
+}
+.park-sign__location {
+    position: relative;
+    flex: 0 0 18%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 11;
+    color: white;
+    letter-spacing: 0.04em;
+    line-height: 1.3;
+    padding: 1% 12% 1% 16%;
+    font-size: clamp(12px, calc(10px + 1vw), 1.25rem);
+}
+.park-sign__shape-divider {
+    // visibility: hidden;
+    // @media (min-width: 400px) {
+    //     visibility: visible;
+    // }
+}
+.park-sign__shape {
+    width: 100%;
+    filter: drop-shadow(0 0 10px rgba(black, 0.1));
+}
