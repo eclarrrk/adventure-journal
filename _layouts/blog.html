@@ -15,9 +15,7 @@ layout: default
         <ul class="card-grid">
             {% for post in site.posts %}
             <li class="card">
-                <div class="card__image" role="presentation">
-                    <a href="{{ post.url }}"><img loading="lazy" src="{{ post.featured-image }}" alt=""></a>
-                </div>
+                <a class="card__image" role="presentation" href="{{ post.url }}"><img loading="lazy" src="{{ post.featured-image }}" alt=""></a>
                 <div class="card__body post-location">  
                     <a href="{{ post.url }}">
                         <time datetime="{{ post.date }}"></time>{{ post.date | date: "%B %d, %Y" }}</time><br>

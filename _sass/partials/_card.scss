@@ -1,7 +1,7 @@
 .card-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 3rem 2rem;
+    gap: 2rem;
 }
 .card {
     display: flex;
@@ -23,15 +23,34 @@
     }
 }
 .card__body {
+    flex: 1;
     font-family: $sign-font;
     text-transform: uppercase;
     padding: 1rem 1.5rem;
     align-items: center;
+    position: relative;
     a,
     a:visited,
     a:focus,
     a:hover {
         color: white;
         text-decoration: none;
+    }
+    a:after {
+        content: '';
+        position: absolute;
+        display: block;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 2;
+        background-color: rgba($brown, .33);
+        mix-blend-mode: color-burn;
+        opacity: 0;
+    }
+    a:hover:after,
+    a:focus:after {
+        opacity: 1;
     }
 }
