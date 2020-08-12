@@ -5,7 +5,7 @@
     <title>{{ site.title }}</title>
     <meta name="description" content="{{ site.description }}" />
     {% else %}
-    <title>{{ page.title }} - {{ site.title }}</title>
+    <title>{% if page.layout == 'post'%}{{ page.date | date_to_string }} at {% for place in site.places %}{% capture place_slug_pretty %}{{ page.place | slice: 11, 999 }}{% endcapture %}{% if place.slug == place_slug_pretty %}{{ place.title }}{% endif %}{% endfor %}{% else %}{{ page.title }} - {{ site.title }}{% endif %}</title>
     {% if page.meta_description %}
     <meta name="description" content="{{ page.meta_description }}" />
     {% endif %} {% endif %} <link rel="stylesheet" href="{{ "/assets/main.css" |
