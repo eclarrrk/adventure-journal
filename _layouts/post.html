@@ -4,19 +4,34 @@ layout: default
 
 
 <header class="post__header">
-    <h1 class="post__title">{{ page.title }}</h1>
-
     <time datetime="{{ page.date }}">
         {{ page.date | date_to_string }}
     </time>
-
+    
+    <h1 class="post__title">{{ page.title }}</h1>
+    
     {% for place in site.places %}
     {% capture place_slug_pretty %}{{ page.place | slice: 11, 999 }}{% endcapture %}
     {% if place.slug == place_slug_pretty %}
-    {% if page.latitude and page.longitude %}
+    {% if place.latitude and place.longitude %}
+
+
     <div class="post__lat-lng">
         <span class="text--no-wrap" id="hikeLat"></span>,
         <span class="text--no-wrap" id="hikeLng"></span>
+
+        <script>
+            function ConvertDDToDMS(D){
+                return [0|D, '° ', 0|(D<0?D=-D:D)%1*60, "' ", 0|D*60%1*60, '"'].join('');
+            }
+            console.log(hikeLat);
+            var hikeLatDMS = ConvertDDToDMS( {{ place.latitude | json }} );
+            var hikeLngDMS = ConvertDDToDMS( {{ place.longitude | json }}, true );
+
+            document.getElementById("hikeLat").innerHTML=hikeLatDMS;
+            document.getElementById("hikeLng").innerHTML=hikeLngDMS;
+        </script>
+
     </div>
     {% endif %}
     {% endif %}
@@ -32,90 +47,97 @@ layout: default
 </header>
 <div class="post__body">
     <div class="post__sidebar">
-
+        
         {% for place in site.places %}
         {% capture place_slug_pretty %}{{ page.place | slice: 11, 999 }}{% endcapture %}
         {% if place.slug == place_slug_pretty %}
         <div class="panel">
             <div class="panel__row">
-                <h3><a href="{{ place.url }}">{{ place.title }}</a></h3>
-            </div>
-            <div class="panel__row">
-                {% if place.area %} <strong>{{ page.area }}</strong><br> {% endif %}
-                {% if place.town %} {{ place.town }}{% endif %}{% if place.town and place.state %},{% endif %} {% if place.state %} {{ place.state }} {% endif %}
+                <strong><a href="{{ place.url }}">{{ place.title }}</a></strong>
+                <div>
+                    {% if place.town %} {{ place.town }}{% endif %}{% if place.town and place.state %},{% endif %} {% if place.state %} {{ place.state }} {% endif %}
+                </div>
+                <a href="{{ place.url }}">More about this area</a>
             </div>
             
-            <div class="panel__row">
-                
-                {% if place.google-link %} 
-                <div>
-                    <a href="{{ place.google-map }}" target="_blank">Google Maps &rarr;</a>
-                </div>
-                {% endif %}
-
-                
-                {% if place.website %} 
-                <div>
-                    <a href="{{ place.website }}">Website &rarr;</a>
-                </div>
-                {% endif %}
-
-                
-                {% if place.area-map %} 
-                <div>
-                    <a href="{{ place.area-map }}" target="_blank">Trail map &rarr;</a>
-                </div>
-                {% endif %}
-            </div>
-    
         </div>
         {% endif %}
         {% endfor %}
-    
+        
         <div class="panel">
             <div class="panel__row">
+                {% if page.distance %}
                 <div>
-                    {% if page.distance %} {{ page.distance }} miles {% endif %}
+                    <strong class="sr-only">Distance</strong>
+                    <div class="icon">
+                        <img src="/assets/img/symbol-distance.svg" alt="" class="icon__img">
+                        <div class="icon__label">{{ page.distance }} mi</div>
+                    </div>
                 </div>
-
+                {% endif %}
+                
+                {% if page.duration %}
                 <div>
-                    {% if page.duration %} {{ page.duration }} hours {% endif %}
+                    <strong class="sr-only">Duration</strong>
+                    <div class="icon">
+                        <img class="icon__img" src="/assets/img/symbol-duration.svg" alt="">
+                        <div class="icon__label">{{ page.duration }} hr</div>
+                    </div>
                 </div>
-
+                {% endif %}
+                
+                
+                {% if page.difficulty %}
                 <div>
-                    {% if page.difficulty %} Difficulty : {{page.difficulty}}/4
-                    {% endif %}
+                    <strong class="sr-only">Difficulty</strong>
+                    <div class="icon">
+                        {% if page.difficulty == '1' %}<img class="icon__img" src="/assets/img/diff-easy.svg" alt="easiest">
+                        <div class="icon__label">Easiest</div>
+                        {% elsif page.difficulty == '2' %}<img class="icon__img" src="/assets/img/diff-med.svg" alt="more difficult">
+                        <div class="icon__label">More difficult</div>
+                        {% elsif page.difficulty == '3' %}<img class="icon__img" src="/assets/img/diff-hard.svg" alt="most-difficult">
+                        <div class="icon__label">Most Difficult</div>
+                        {% endif %}
+                    </div>
                 </div>
+                {% endif %}
             </div>
-
+            
+            {% if page.rating %}
             <div class="panel__row">
-                {% if page.rating %} Rating : {{page.rating}}/3 thumbs {% endif
-                %}<br />
-
-                {% if page.happiness %} Flynn's Happiness : {{page.happiness}}/3
-                goldfish {% endif %}
+                <strong class="sr-only">Rating</strong>
+                {% if page.rating == '1' %} 1/3
+                {% elsif page.rating == '2' %} 2/3
+                {% elsif page.rating == '3' %} 3/3
+                {% endif %}
             </div>
+            {% endif %}
+            
+            {% if page.happiness %}
+            <div class="panel__row">
+                <strong class="sr-only">Kid rating</strong>
+                {% if page.happiness == '1' %} 1/3
+                {% elsif page.happiness == '2' %} 2/3
+                {% elsif page.happiness == '3' %} 3/3
+                {% endif %}
+            </div>
+            {% endif %}
+            
         </div>
-
+        
         {% if page.summary %}
         <div class="panel panel--full">
             <p class="label">Route notes</p>
             <p>{{page.summary}}</p>
         </div>
         {% endif %}
-
-        <div class="panel panel--map">
-            <div class="map__wrapper">
-                <div class="map" id="map"></div>
-            </div>
-        </div>
+        
     </div>
-
     <div class="post__main">
         {{ content }}
     </div>
 </div>
-
+    
 <nav>
     <h2 class="sr-only">Adjacent Posts</h2>
     <ul>
@@ -134,374 +156,3 @@ layout: default
         {% endif %}
     </ul>
 </nav>
-
-{% if page.latitude and page.longitude %}
-<script>
-    function ConvertDDToDMS(D){
-        return [0|D, '° ', 0|(D<0?D=-D:D)%1*60, "' ", 0|D*60%1*60, '"'].join('');
-    }
-    console.log(hikeLat);
-    var hikeLatDMS = ConvertDDToDMS( {{ page.latitude | json }} );
-    var hikeLngDMS = ConvertDDToDMS( {{ page.longitude | json }}, true );
-
-    document.getElementById("hikeLat").innerHTML=hikeLatDMS;
-    document.getElementById("hikeLng").innerHTML=hikeLngDMS;
-</script>
-
-<script>
-    function initMap() {
-      var myLat = {{ page.latitude | json }};
-      var myLng = {{ page.longitude | json }};
-      var myMap = new google.maps.Map(document.getElementById('map'), {
-        zoom: 14,
-        center: {
-          lat: myLat,
-          lng: myLng
-        },
-        styles: [
-            {
-                "featureType": "administrative",
-                "elementType": "labels.text.fill",
-                "stylers": [
-                    {
-                        "color": "#6195a0"
-                    }
-                ]
-            },
-            {
-                "featureType": "administrative.province",
-                "elementType": "geometry.stroke",
-                "stylers": [
-                    {
-                        "visibility": "off"
-                    }
-                ]
-            },
-            {
-                "featureType": "administrative.province",
-                "elementType": "labels",
-                "stylers": [
-                    {
-                        "visibility": "on"
-                    }
-                ]
-            },
-            {
-                "featureType": "administrative.province",
-                "elementType": "labels.text",
-                "stylers": [
-                    {
-                        "visibility": "on"
-                    }
-                ]
-            },
-            {
-                "featureType": "administrative.locality",
-                "elementType": "labels",
-                "stylers": [
-                    {
-                        "visibility": "on"
-                    }
-                ]
-            },
-            {
-                "featureType": "administrative.locality",
-                "elementType": "labels.text",
-                "stylers": [
-                    {
-                        "visibility": "on"
-                    }
-                ]
-            },
-            {
-                "featureType": "administrative.neighborhood",
-                "elementType": "labels.text",
-                "stylers": [
-                    {
-                        "visibility": "on"
-                    }
-                ]
-            },
-            {
-                "featureType": "landscape",
-                "elementType": "geometry",
-                "stylers": [
-                    {
-                        "lightness": "0"
-                    },
-                    {
-                        "saturation": "0"
-                    },
-                    {
-                        "color": "#f5f5f2"
-                    },
-                    {
-                        "gamma": "1"
-                    }
-                ]
-            },
-            {
-                "featureType": "landscape.man_made",
-                "elementType": "all",
-                "stylers": [
-                    {
-                        "lightness": "-3"
-                    },
-                    {
-                        "gamma": "1.00"
-                    }
-                ]
-            },
-            {
-                "featureType": "landscape.natural.terrain",
-                "elementType": "all",
-                "stylers": [
-                    {
-                        "visibility": "off"
-                    }
-                ]
-            },
-            {
-                "featureType": "poi",
-                "elementType": "all",
-                "stylers": [
-                    {
-                        "visibility": "off"
-                    }
-                ]
-            },
-            {
-                "featureType": "poi.park",
-                "elementType": "geometry.fill",
-                "stylers": [
-                    {
-                        "color": "#bae5ce"
-                    },
-                    {
-                        "visibility": "on"
-                    }
-                ]
-            },
-            {
-                "featureType": "poi.park",
-                "elementType": "labels",
-                "stylers": [
-                    {
-                        "visibility": "on"
-                    }
-                ]
-            },
-            {
-                "featureType": "poi.park",
-                "elementType": "labels.text",
-                "stylers": [
-                    {
-                        "visibility": "on"
-                    }
-                ]
-            },
-            {
-                "featureType": "poi.park",
-                "elementType": "labels.icon",
-                "stylers": [
-                    {
-                        "visibility": "on"
-                    }
-                ]
-            },
-            {
-                "featureType": "road",
-                "elementType": "all",
-                "stylers": [
-                    {
-                        "saturation": -100
-                    },
-                    {
-                        "lightness": 45
-                    },
-                    {
-                        "visibility": "simplified"
-                    }
-                ]
-            },
-            {
-                "featureType": "road.highway",
-                "elementType": "all",
-                "stylers": [
-                    {
-                        "visibility": "simplified"
-                    }
-                ]
-            },
-            {
-                "featureType": "road.highway",
-                "elementType": "geometry.fill",
-                "stylers": [
-                    {
-                        "color": "#fac9a9"
-                    },
-                    {
-                        "visibility": "simplified"
-                    }
-                ]
-            },
-            {
-                "featureType": "road.highway",
-                "elementType": "labels.text",
-                "stylers": [
-                    {
-                        "color": "#4e4e4e"
-                    }
-                ]
-            },
-            {
-                "featureType": "road.arterial",
-                "elementType": "labels.text.fill",
-                "stylers": [
-                    {
-                        "color": "#787878"
-                    }
-                ]
-            },
-            {
-                "featureType": "road.arterial",
-                "elementType": "labels.icon",
-                "stylers": [
-                    {
-                        "visibility": "off"
-                    }
-                ]
-            },
-            {
-                "featureType": "road.local",
-                "elementType": "geometry",
-                "stylers": [
-                    {
-                        "visibility": "on"
-                    }
-                ]
-            },
-            {
-                "featureType": "road.local",
-                "elementType": "geometry.fill",
-                "stylers": [
-                    {
-                        "visibility": "on"
-                    }
-                ]
-            },
-            {
-                "featureType": "road.local",
-                "elementType": "labels",
-                "stylers": [
-                    {
-                        "visibility": "simplified"
-                    }
-                ]
-            },
-            {
-                "featureType": "transit",
-                "elementType": "all",
-                "stylers": [
-                    {
-                        "visibility": "simplified"
-                    }
-                ]
-            },
-            {
-                "featureType": "transit.station.airport",
-                "elementType": "labels.icon",
-                "stylers": [
-                    {
-                        "hue": "#0a00ff"
-                    },
-                    {
-                        "saturation": "-77"
-                    },
-                    {
-                        "gamma": "0.57"
-                    },
-                    {
-                        "lightness": "0"
-                    }
-                ]
-            },
-            {
-                "featureType": "transit.station.rail",
-                "elementType": "labels.text.fill",
-                "stylers": [
-                    {
-                        "color": "#43321e"
-                    }
-                ]
-            },
-            {
-                "featureType": "transit.station.rail",
-                "elementType": "labels.icon",
-                "stylers": [
-                    {
-                        "hue": "#ff6c00"
-                    },
-                    {
-                        "lightness": "4"
-                    },
-                    {
-                        "gamma": "0.75"
-                    },
-                    {
-                        "saturation": "-68"
-                    }
-                ]
-            },
-            {
-                "featureType": "water",
-                "elementType": "all",
-                "stylers": [
-                    {
-                        "color": "#eaf6f8"
-                    },
-                    {
-                        "visibility": "on"
-                    }
-                ]
-            },
-            {
-                "featureType": "water",
-                "elementType": "geometry.fill",
-                "stylers": [
-                    {
-                        "color": "#c7eced"
-                    },
-                    {
-                        "weight": "2"
-                    }
-                ]
-            },
-            {
-                "featureType": "water",
-                "elementType": "labels.text.fill",
-                "stylers": [
-                    {
-                        "lightness": "-49"
-                    },
-                    {
-                        "saturation": "-53"
-                    },
-                    {
-                        "gamma": "0.79"
-                    }
-                ]
-            }
-        ]
-      });
-      var tempObject = {
-        "type": "Feature",
-        "geometry": {
-          "type": "Point",
-          "coordinates": [ {{ page.longitude | json }}, {{ page.latitude | json }} ]
-          }
-      };
-      myMap.data.addGeoJson(tempObject);
-    }
-</script>
-{% endif %}
