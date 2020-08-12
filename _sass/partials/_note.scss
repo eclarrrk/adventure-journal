@@ -1,0 +1,18 @@
+.note {
+    padding: 1.15rem 1rem 1rem 1rem;
+    border: 1px solid $khaki;
+    margin: 1.5rem 0;
+    position: relative;
+    font-size: .9rem;
+    .label {
+        display: inline-block;
+        position: absolute;
+        top: 0;
+        background-color: $khaki--l;
+        padding: 0 6px;
+        transform: translate(-6px, -50%);
+        font-size: .75em;
+        text-transform: uppercase;
+        margin-bottom: .5rem;
+    }
+}
