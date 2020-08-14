@@ -4,7 +4,14 @@
 
 @charset "utf-8";
 
-html body #nc-root {
+html,
+body#adminBody {
+    width: 100vw;
+    max-width: 100vw;
+    overflow-x: hidden;
+    overflow-y: visible;
+}
+html body#adminBody {
     [class*="AppMainContainer"],
     [class*="AppHeaderContent"] {
         min-width: 0;
@@ -20,34 +27,123 @@ html body #nc-root {
             margin: 0;
             padding: 16px 7px;
         }
+
+        [class*="-button-"] {
+            height: auto;
+            line-height: 1.3;
+            padding: 6px 12px;
+        }
+        [class*="StyledDropdownButton"] {
+            padding-right: 26px;
+        }
+        [class*="buttonMargin"] {
+            margin: 0 10px 10px 0;
+        }
         [class*="CollectionMain"] {
             padding-left: 0;
         }
         [class*="CollectionTopContainer-card-cardTop"] {
             width: 100%;
         }
-        [class*="ToolbarSectionMain-toolbarSection"] {
-            flex-direction: column;
-            justify-content: space-evenly;
+        [class*="ToolbarSectionMain"] {
+            flex-wrap: wrap;
+            justify-content: flex-start;
+            align-items: flex-start;
         }
+        [class*="ToolbarSectionBackLink"] {
+            padding-top: 5px;
+            padding-bottom: 5px;
+        }
+
+        /* Blog */
+        [class*="EditorContainer"] {
+            min-width: 0;
+            padding-top: 100px;
+        }
+        [class*="ToolbarContainer"] {
+            height: 100px;
+            width: 100%;
+            min-width: 0;
+            display: flex;
+            flex-direction: column;
+
+            button,
+            [class*="PublishedToolbarButton"] {
+                margin: 0 10px 10px 0;
+            }
+        }
+        [class*="EditorControlBar"] [class*="ToolbarContainer"] {
+            flex-direction: row;
+            button {
+                margin: 0;
+            }
+        }
+
+        [class*="ViewControls"] {
+            display: none;
+        }
+        [class*="PublishedToolbarButton"]:after {
+            top: 10px !important;
+        }
+        [class*="AvatarDropdownButton"] {
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+        [class*="ToolbarToggle"] {
+            flex-direction: column !important;
+        }
+        [class*="SplitPane"] {
+            flex-direction: column !important;
+        }
+        [class*="SplitPane"] > * {
+            width: 100% !important;
+        }
+        .Pane2,
+        .Pane2 iframe {
+            display: none !important;
+        }
+        /* End Blog */
 
         /* Media */
         [class*="StyledModal"] {
             padding: 15px;
-            grid-template-rows: 190px auto;
+            grid-template-rows: 160px auto !important;
+            width: calc(100vw - 30px);
+            [class*="CloseButton"] {
+                left: -5px;
+            }
+            [class*="RowContainer"] {
+                margin-bottom: 10px;
+                [class*="ButtonsContainer"] {
+                    button {
+                        margin: 10px 10px 0 0;
+                    }
+                }
+            }
         }
         [class*="SearchContainer"] {
             display: block;
-            width: 100%;
+            width: max-content;
+            max-width: 100%;
+        }
+        [class*="SearchInput"] {
+            width: max-content;
         }
         [class*="LibraryTop"] {
             flex-direction: column;
+            [class*="RowContainer"] {
+                flex-wrap: wrap;
+                & > * {
+                    flex: none;
+                }
+            }
         }
         [class*="ActionsContainer"] {
             text-align: center;
         }
         [class*="LibraryTitle"] {
-            margin-bottom: 15px;
+            margin-bottom: 8px;
         }
         [class*="UpperActionsContainer"] {
             display: inline-block;
@@ -79,33 +175,5 @@ html body #nc-root {
             padding-top: 20px;
         }
         /* End Media */
-
-        /* Blog */
-        [class*="EditorContainer"] {
-            min-width: 0;
-            padding-top: 100px;
-        }
-        [class*="ToolbarContainer"] {
-            height: 100px;
-            width: 100%;
-            min-width: 0;
-        }
-        [class*="ViewControls"] {
-            display: none;
-        }
-        [class*="ToolbarToggle"] {
-            flex-direction: column !important;
-        }
-        [class*="SplitPane"] {
-            flex-direction: column !important;
-        }
-        [class*="SplitPane"] > * {
-            width: 100% !important;
-        }
-        .Pane2,
-        .Pane2 iframe {
-            display: none !important;
-        }
-        /* End Blog */
     }
 }
