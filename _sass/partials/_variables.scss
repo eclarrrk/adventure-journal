@@ -1,22 +1,22 @@
 // site colours
-$green--d: #3a4c30;
+$green: #4e6f3b;
+$green--d: #314c22;
 $khaki: #c1ba90;
 $khaki--l: #eae6e1;
 $brown: #53483a;
 
-$text-color: #495244;
+$text-color: $brown;
 $text-color-negative: $khaki--l;
 $brand-color: $green--d;
-$link-color: #0b5e86;
-$link-hover-color: rgb(0, 57, 78);
+$link-color: $green;
+$link-hover-color: $green--d;
 $grey-bg-color: rgb(243, 243, 243);
 $hairline-color: $khaki;
-$selection-bg-color: rgba(131, 197, 94, 0.5);
+$selection-bg-color: $khaki;
 
 // typographic defaults
 $base-font: nps, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
     Oxygen, Ubuntu, Cantarell, Droid Sans, Helvetica Neue;
-$heading-font: granville, serif;
 $heading-font: "Parkly", sans-serif;
 $sign-font: "Roboto Condensed", sans-serif;
 $code-font: Courier, monospace;

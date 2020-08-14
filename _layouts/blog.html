@@ -9,33 +9,25 @@ layout: default
 {{ content }}
 
 <section>
-    <h2 class="sr-only">Posts</h2>
+    <div class="container">
+        <h2 class="sr-only">Posts</h2>
 
-    <ul>
-        {% for post in site.posts %} {% assign author =
-        site.data.authors[post.author] %}
-        <li>
-            <time datetime="{{ post.date }}">
-                <small>
-                    {{ post.date | date_to_string }}
-                </small>
-            </time>
-
-            <h3><a href="{{ post.url }}">{{ post.title }}</a></h3>
-
-            <p>
-                <small>
-                    {% for place in site.places %}<!--  -->
-                    {% capture place_slug_pretty %}{{ post.place | slice: 11,999
-                    }}{% endcapture %} {% if place.slug == place_slug_pretty %}
-                    {{ place.title }} {% if place.area %} {{ page.area }} {%
-                    endif %} {% if place.town %}&nbsp;@&nbsp; {{ place.town }}{%
-                    endif %}{% if place.town and place.state %},{% endif %} {%
-                    if place.state %} {{ place.state }} {% endif %} {% endif %}
-                    {% endfor %}
-                </small>
-            </p>
-        </li>
-        {% endfor %}
-    </ul>
+        <ul class="card-grid">
+            {% for post in site.posts %}
+            <li class="card">
+                <a class="card__image" role="presentation" href="{{ post.url }}"><img loading="lazy" src="{{ post.featured-image }}" alt=""></a>
+                <div class="card__body post-location">  
+                    <a href="{{ post.url }}">
+                        <time datetime="{{ post.date }}"></time>{{ post.date | date: "%B %d, %Y" }}</time><br>
+                        {% for place in site.places %}
+                            {% capture place_slug_pretty %}{{ post.place | slice: 11,999
+                            }}{% endcapture %}{% if place.slug == place_slug_pretty %}
+                            {{ place.title }}{% if place.area %}{% endif %}{% endif %}{% endfor %}
+                    </a>
+                    {% include np-arrow-svg.html %}
+                </div>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
 </section>

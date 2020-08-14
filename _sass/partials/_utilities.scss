@@ -95,3 +95,17 @@ textarea {
 button {
 	@include button($link-color, $text-color-negative);
 }
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+.container--md {
+    max-width: 800px;
+}
+
+.container--sm {
+    max-width: 660px;
+}
