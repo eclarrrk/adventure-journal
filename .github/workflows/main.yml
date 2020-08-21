@@ -12,6 +12,6 @@ jobs:
               uses: xprilion/img-resizer-inplace@v1
               with:
                   # Folder in which images are stored
-                  target: "assets/img/uploads"
+                  target: "/assets/img/uploads"
                   # New resolution for images
                   dimensions: "1200x"
